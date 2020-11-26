@@ -64,6 +64,10 @@ module.exports = class OutputCache extends EventEmitter {
                 cacheKey += `-q-${urlParsed.search}`;
             }
         }
+        
+        if (req.headers['origin']) {
+            cacheKey += `-ao-${req.headers['origin']}`;
+        }
 
         if (req.cookies) {
             for (let i = 0; i < this.varyByCookies.length; i++) {
