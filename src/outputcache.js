@@ -7,7 +7,7 @@ module.exports = class OutputCache extends EventEmitter {
 
     constructor(options = {}) {
         super();
-        this.ttl = { maxAge: options.ttl || 600, staleWhileRevalidate: this.staleWhileRevalidate || 0 };
+        this.ttl = { maxAge: options.ttl || 600, staleWhileRevalidate: options.staleWhileRevalidate || 0 };
         this.maxItems = options.maxItems || 1000;
         this.staleWhileRevalidate = options.staleWhileRevalidate;
         this.varyByCookies = Array.isArray(options.varyByCookies) ? options.varyByCookies : [];
